@@ -1,12 +1,8 @@
 name: Cloud189Checkin
 
 on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
   schedule:
-    - cron: 0 2,14 * * *
+    - cron: 0 9 * * *
 
 jobs:
   build:
@@ -15,11 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Install Python
-      run: |
-        sudo apt update && \
-        sudo apt install python3
-      
     - name: requirements
       run: |
         pip3 install -r requirements.txt
